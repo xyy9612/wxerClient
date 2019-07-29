@@ -1,0 +1,67 @@
+/**index.wxss**/
+page{
+  background: #F9F9F9;
+  font-family: 'PingFang-SC-Bold'
+}
+/* 大图 */
+.poto{
+  width: 720rpx;
+  height: 1030rpx;
+  margin: 0 34rpx 25rpx;
+  background: #F9F9F9;
+}
+.poto image{
+  width: 100%;
+  height: 100%;
+}
+/* sub */
+.subView{
+  width: 762rpx;
+  height: 324rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  margin-bottom: 20rpx;
+
+}
+
+/* sub 直供 */
+.supply{
+  position: relative;
+  width: 445rpx;
+  height: 264rpx;
+  margin-left: 25rpx;
+  border-radius: 22rpx;
+}
+/* 直供 字体 */
+.supply .font{
+  position: absolute;
+  font-size: 46rpx;
+  left: 88px;
+  top: 28rpx;
+  color: #FB454D;
+  font-weight: bold;
+}
+/* sub 直播 */
+.live{
+  position: relative;
+  width: 250rpx;
+  height: 262rpx;
+  margin-right: 25rpx;
+  border-radius: 22rpx;
+
+}
+/* 直播 字体 */
+.live .fontcla{
+  position: absolute;
+  font-size: 46rpx;
+  left: 80rpx;
+  top: 28rpx;
+  color: #F99928;
+  font-weight: bold;
+}
+.subView image{
+  width: 100%;
+  height: 100%;
+}

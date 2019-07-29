@@ -1,0 +1,18 @@
+<!--pages/liverBoadcast/liverBoadcast.wxml-->
+<view class='container'>
+  <view class='viewBox' wx:for='{{videoList}}' wx:key='videoList'>
+    <image class='videoimg' src="{{item.videoImg}}">
+
+    </image>
+          <image class='videobutton' src="{{item.videobutton}}"></image>
+    
+    <view class='videotext'>
+      <view class='videotitle'>
+        {{ item.title}}
+      </view>
+      <view class='videosubtext'>
+        {{ item.sub}}
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/supply/supply",
+    "pages/supplyDetails/supplyDetails",
+    
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/shopCar/shopCar",
+    "pages/myHome/myHome",
+    "pages/shoppingView/shoppingView",
+    "pages/questionNaire/questionNaire",
+    "pages/liverBoadcast/liverBoadcast"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#A3A3A3",
+    "selectedColor": "#FA353D",
+    "backgroundColor": "white",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/shouye.png",
+        "selectedIconPath": "images/shouye-show.png"
+      },
+      {
+        "pagePath": "pages/shopCar/shopCar",
+        "text": "购物车",
+        "iconPath": "images/gouwuche.png",
+        "selectedIconPath": "images/gouwuche-show.png"
+      },
+      {
+        "pagePath": "pages/myHome/myHome",
+        "text": "我的",
+        "iconPath": "images/wode.png",
+        "selectedIconPath": "images/wode-show.png"
+      }
+    ]
+  }
+}

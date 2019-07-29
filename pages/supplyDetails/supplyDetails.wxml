@@ -1,0 +1,17 @@
+<!--pages/supplyDetails/supplyDetails.wxml-->
+<view class="viewcla">
+  <!-- top -->
+  <view class='topcla'>
+    <image src='{{dataList.img}}'></image>
+    <view class='title p-ml-10'>{{dataList.title}}</view>
+    <view class='subtitle p-ml-10'>{{dataList.subtitle}}</view>
+    <view class='price p-ml-10'>¥ <text>{{dataList.price}}</text></view>
+  </view>
+  <view class='textview'>
+    
+  </view>
+   <!-- <view class='topcla'>
+  
+  </view> -->
+  <!-- <image src="../../images/img/details.png"></image> -->
+</view>

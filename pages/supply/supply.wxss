@@ -1,0 +1,69 @@
+/* pages/liverBoadcast/liverBoadcast.wxss */
+
+page {
+  background: #f9f9f9;
+}
+
+.viewBox {
+  height: 230rpx;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  margin-top: 10rpx;
+}
+
+/* 图片 */
+
+.imgview {
+  width: 162rpx;
+  height: 166rpx;
+  margin: 36rpx 0 0 36rpx;
+}
+
+/* 文本区域 */
+
+.textView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 50rpx;
+  padding: 40rpx 0 0 0px;
+}
+
+/* 标题 */
+
+.subtit {
+  font-weight: bold;
+}
+
+/* 价格区 */
+
+.priceview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #a3a3a3;
+}
+
+.price {
+  font-weight: bold;
+  color: red;
+  font-size: 40rpx;
+  margin: 0 16rpx 0 6rpx;
+}
+
+/* 按钮 */
+
+.btncla {
+  background: linear-gradient(to right, #ff6d6d 0, #f92832 100%);
+  color: white;
+  border-radius: 40rpx;
+  height: 68rpx;
+  width: 180rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 68rpx;
+  margin-left: 70rpx;
+}

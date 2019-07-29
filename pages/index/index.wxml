@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class='poto'>
+    <image src='../../images/img/rushBuy.png'></image>
+  </view>
+  <!-- 直供直播 -->
+  <view class='subView'>
+    <view class='supply' bindtap='supplyJump'>
+      <view class='font'>直供</view>
+      <image src='../../images/img/supply.png'></image>
+    </view> 
+
+    <view class='live' bindtap='liveJump'>
+      <view class='fontcla' >直播</view>
+      <image src='../../images/img/live.png'></image>
+    </view>
+  </view>
+</view>

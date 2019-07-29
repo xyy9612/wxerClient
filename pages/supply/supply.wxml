@@ -1,0 +1,14 @@
+<!--pages/liverBoadcast/liverBoadcast.wxml-->
+<view class='container'>
+  <view class='viewBox' wx:for='{{supplyList}}' wx:key='supplyList' data-id='{{item.id}}' data-title='{{item.title}}' data-price='{{item.price}}' data-subtitle='{{item.subtitle}}'  data-img='{{item.img}}' bindtap='jumpDetail'>
+    <image class='imgview' src='{{item.img}}'></image>
+    <view class='textView'>
+      <view class='subtit'>{{ item.title}}</view> 
+      <view class='priceview'>
+        <view>¥<text class='price'>{{item.price}}</text>原价<text style='text-decoration:line-through'> ¥{{item.exprice}}</text></view>
+        <button class='btncla'>立即购买</button>
+        
+      </view>
+    </view>
+  </view>
+</view>
