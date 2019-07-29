@@ -3,15 +3,32 @@
   <!-- top -->
   <view class='topcla'>
     <image src='{{dataList.img}}'></image>
-    <view class='title p-ml-10'>{{dataList.title}}</view>
-    <view class='subtitle p-ml-10'>{{dataList.subtitle}}</view>
-    <view class='price p-ml-10'>¥ <text>{{dataList.price}}</text></view>
+    <view class='title p-ml-10 p-mt-5'>{{dataList.title}}</view>
+    <view class='subtitle p-ml-10 p-mt-5'>{{dataList.subtitle}}</view>
+    <view class='price p-ml-10 p-mt-5'>¥ <text>{{dataList.price}}</text></view>
+
+    <view class='textview p-mt-30'>
+      <view class='freight'>运费 免运费</view>
+      <view class='surplus'>剩余 <text style='color:red;'> 200 </text></view>
+    </view>
   </view>
-  <view class='textview'>
-    
+
+  <!-- main -->
+  <view>
+    <view class='maintop'>
+
+        <view style="width:100%;height:120rpx;top:0rpx;z-index:999">
+          <view class="select-box ">
+            <view class="select-item" bindtap="getANList">
+              <text class=' {{ outClass }}'>商品详情</text>
+            </view>
+            <view class="select-item " bindtap="getWXList">
+              <text class='{{ inClass }}'>成交记录</text>
+            </view>
+          </view>
+        </view>
+    </view>
+    <view class='maining'></view>
   </view>
-   <!-- <view class='topcla'>
-  
-  </view> -->
   <!-- <image src="../../images/img/details.png"></image> -->
 </view>
