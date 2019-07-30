@@ -1,2 +1,37 @@
 <!--pages/questionNaire/questionNaire.wxml-->
-<text>pages/questionNaire/questionNaire.wxml</text>
+<view class='contians'>
+  <!-- 背景图 -->
+  <image src='../../images/img/question.png'></image>
+  <!-- 选项框 -->
+  <form class='formBox' bindsubmit="formSubmit">
+    <view class='checkwrap'>
+      <!-- 问题 -->
+      <text>您的性别</text>
+      <checkbox-group class="groupclas" name="sex">
+        <label class="{{item.checked?'checkbox checked':'checkbox'}}" wx:for="{{quesOne}}" bindtap='checkbox' data-index="{{index}}" wx:key="item.check">
+          <checkbox class='btncla' value="{{item.check}}" checked="{{item.checked}}" />{{item.check}}
+        </label>
+      </checkbox-group>
+     
+      <text>您的年龄</text>
+      <checkbox-group class="groupclas" name="age">
+        <label class="{{item.checked?'checkbox checked':'checkbox'}}" wx:for="{{quesTwo}}" bindtap='checkbox2' data-index="{{index}}" wx:key="item.check">
+          <checkbox class='btncla' value="{{item.check}}" checked="{{item.checked}}" />{{item.check}}
+        </label>
+      </checkbox-group>
+      <text>您会选择什么方式购物</text>
+      <checkbox-group class="groupclas" name="typeShop">
+        <label class="{{item.checked?'checkbox checked':'checkbox'}}" wx:for="{{quesThree}}" bindtap='checkbox3' data-index="{{index}}" wx:key="item.check">
+          <checkbox class='btncla' value="{{item.check}}" checked="{{item.checked}}" />{{item.check}}
+        </label>
+      </checkbox-group> 
+      <!-- textarea  -->
+      <text>您对我们平台有什么意见或建议</text>
+      <textarea name="proposal" class='textarea' placeholder="觉得这件商品如何，快来说几句吧" placeholder-class='placeholder' focus="{{focus}}">
+      </textarea>
+
+      <!-- 按钮提交 -->
+      <button class='btnClass' formType="submit">提交</button>
+    </view>
+  </form>
+</view>

@@ -1,15 +1,14 @@
 {
   "pages": [
-    "pages/supply/supply",
-    "pages/supplyDetails/supplyDetails",
-    
     "pages/index/index",
     "pages/logs/logs",
     "pages/shopCar/shopCar",
     "pages/myHome/myHome",
     "pages/shoppingView/shoppingView",
-    "pages/questionNaire/questionNaire",
-    "pages/liverBoadcast/liverBoadcast"
+    "pages/liverBoadcast/liverBoadcast",
+    "pages/supply/supply",
+    "pages/supplyDetails/supplyDetails",
+    "pages/questionNaire/questionNaire"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,11 +1,10 @@
 <!--pages/liverBoadcast/liverBoadcast.wxml-->
 <view class='container'>
   <view class='viewBox' wx:for='{{videoList}}' wx:key='videoList'>
-    <image class='videoimg' src="{{item.videoImg}}">
-
-    </image>
-          <image class='videobutton' src="{{item.videobutton}}"></image>
-    
+    <!-- 图片 -->
+    <image class='videoimg' src="{{item.videoImg}}"></image>
+    <image class='videobutton' src="{{item.videobutton}}"></image>
+    <!-- 标题区 -->
     <view class='videotext'>
       <view class='videotitle'>
         {{ item.title}}
