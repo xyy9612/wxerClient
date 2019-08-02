@@ -10,6 +10,62 @@ page{
   height: 860rpx;
   background: #FFFFFF;
 }
+
+.rollView{
+  position: absolute;
+  top: 325rpx;
+  left: 40rpx;
+  width: 600rpx;
+  height: 225rpx;
+  overflow: hidden;
+  font-size: small;
+}
+
+.roll{
+  height: 120rpx;
+}
+.roll_item{
+  color: white;
+  width: 515rpx;
+  height: 0rpx;
+  border-radius: 60rpx;
+  padding: 20px;
+  background: #000;
+  opacity: 0.5;
+  margin-top: 30rpx;
+  line-height: 0
+}
+.gonggao {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-left: 1px solid #ccc;
+}
+.scrolltxt{
+  padding:0 20rpx;
+  background:#F3F3F3;
+}
+.marquee_box {
+  position:relative;
+  color:#333;
+  height:100rpx;
+  display:block;
+  overflow:hidden;
+} 
+.marquee_text {
+  white-space: nowrap;
+  position:absolute;
+  top:0;
+  font-size:14px;
+  height: 100rpx;
+  line-height:100rpx;
+}
+/* .roll{
+  width: 570rpx;
+  height: 50rpx;
+} */
 /* 商品图片 */
 .topcla image{
   width: 100%;
@@ -36,9 +92,8 @@ page{
   color: #F92832;
   font-size: 38rpx;
   font-weight: bold;
-
 }
-
+/* 文字 */
 .textview{
   width: 100%;
   display:flex;

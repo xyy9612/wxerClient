@@ -1,1 +1,144 @@
 /* pages/myHome/myHome.wxss */
+
+page {
+  background: #f9f9f9;
+  height: 100%;
+}
+
+.top {
+  position: relative;
+}
+
+/* 背景图设置 */
+
+.top_imgbg {
+  width: 100%;
+  height: 260rpx;
+}
+
+/* 头像样式设置 */
+
+open-data[type="userAvatarUrl"] {
+  width: 110rpx;
+  height: 110rpx;
+  position: absolute;
+  top: 76rpx;
+  left: 30rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* 用户名称设置 */
+
+open-data[type="userNickName"] {
+  position: absolute;
+  left: 160rpx;
+  top: 114rpx;
+  color: #fff;
+  font-size: 34rpx;
+}
+
+/* 我的订单 */
+
+.my_order {
+  width: 690rpx;
+  height: 232rpx;
+  background: #fff;
+  position: relative;
+  top: 20rpx;
+  left: 30rpx;
+  border-radius: 16rpx;
+}
+
+.my_all {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 630rpx;
+  position: absolute;
+  top: 30rpx;
+  left: 30rpx;
+  font-weight: bold;
+  color: #292929;
+  font-size: 34rpx;
+}
+
+/* 查看全部订单 */
+
+.my_text {
+  font-size: 24rpx;
+  color: #a3a3a3;
+  font-weight: normal;
+}
+
+/*  功能入口区 */
+
+.icon_entry {
+  height: 100rpx;
+  position: absolute;
+  top: 100rpx;
+  left: 30rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.icon_text {
+  width: 126rpx;
+  height: 106rpx;
+  position: relative;
+}
+
+/* 功能图标 */
+
+.icon_text image {
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  top: 5rpx;
+  left: 38rpx;
+}
+
+/* 功能文字 */
+
+.icon_text text {
+  font-size: 26rpx;
+  color: #282828;
+  text-align: center;
+  position: absolute;
+  bottom: 0rpx;
+  left: 26rpx;
+}
+
+.icon_text text:nth-last-child(1) {
+  position: absolute;
+  bottom: 0rpx;
+  left: 20rpx;
+}
+
+/* 个人资料 */
+.personal_data{
+  width: 690rpx;
+  height: 315rpx;
+  background: #fff;
+  position: relative;
+  top: 54rpx;
+  left: 30rpx;
+  border-radius: 16rpx;
+  
+}
+.data_info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 622rpx;
+  height: 80rpx;
+  padding-left: 52rpx;
+  color: #000000;
+  font-weight: bold;
+}
+.data_info image{
+  width: 48rpx;
+  height: 48rpx;
+
+}

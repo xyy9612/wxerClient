@@ -27,6 +27,11 @@ Page({
       url: "/pages/supply/supply"
     })
   },
+  rushJump:function(){
+    wx.navigateTo({
+      url: '/pages/supplyDetails/supplyDetails',
+    })
+  }
   // onLoad: function () {
   // onLoad: function () {
   //   if (app.globalData.userInfo) {

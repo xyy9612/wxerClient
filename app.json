@@ -1,13 +1,15 @@
 {
   "pages": [
+    
     "pages/index/index",
     "pages/logs/logs",
-    "pages/shopCar/shopCar",
     "pages/myHome/myHome",
+    "pages/myOrder/myOrder",
+    "pages/shopCar/shopCar",
     "pages/shoppingView/shoppingView",
-    "pages/liverBoadcast/liverBoadcast",
     "pages/supply/supply",
     "pages/supplyDetails/supplyDetails",
+    "pages/liverBoadcast/liverBoadcast",
     "pages/questionNaire/questionNaire"
   ],
   "window": {

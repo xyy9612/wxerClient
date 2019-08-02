@@ -1,39 +1,27 @@
 // pages/supplyDetails/supplyDetails.js
-// var deallist = require('../../data/data.js')
+var recordList = require('../../data/data.js').recordList
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    dataList: {},
+    dataList: {}, // 图片详情接收的值
     currentData: 0,
-    recordList: [{
-        "id": '1111111111111111'
-      },
-      {
-        "id": '1123354667'
-      },
-      {
-        "id": '3254654767879'
-      },
-      {
-        "id": '6786868687878'
-      },
-      {
-        "id": 'dsdf546676768'
-      },
-      {
-        "id": '345364768'
-      },
-      {
-        "id": 'ffffffffffff'
-      },
-      {
-        "id": '5755555757567'
-      }
 
-    ]
+    circular: true,
+    indicatorDots: false,
+    autoplay: true,
+    interval: 4000,
+    duration: 1000,
+    vertical: true,
+    text: [{
+      text: '121510515120'
+    }, {
+        text: '121510515120'
+    }],
+
+    recordList: {} // 成交记录
 
   },
 
@@ -43,9 +31,16 @@ Page({
   onLoad: function(options) {
     const that = this
     let dataList = options
-
+    if (dataList.subtitle && dataList.bigimg == 'undefined' || ''){
+      dataList.subtitle = '暂无副标题'
+      dataList.bigimg = ''
+    }
+    // for (let i = 0; i < options.length;i++){
+    //   console.log(options[i].subtitle)
+    // }
     that.setData({
-      dataList: dataList
+      dataList: dataList,
+      recordList: recordList
     })
   },
 

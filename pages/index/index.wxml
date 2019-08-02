@@ -2,7 +2,7 @@
 <view class="container">
 
   <view class='poto'>
-    <image src='../../images/img/rushBuy.png'></image>
+    <image src='../../images/img/rushBuy.png' bindtap='rushJump'></image>
   </view>
   <!-- 直供直播 -->
   <view class='subView'>

@@ -1,32 +1,29 @@
-// pages/myHome/myHome.js
-const app = getApp()
-let funList = require("../../data/data.js").my_entrance
+// pages/test/test.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    funList:[], // 功能入口
-    rightImg:'../../images/img/right.png',
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    circular:true,
+    indicatorDots: true,
+    autoplay: true,
+    interval: 3000,
+    duration:1000,
+    vertical:true,
+    text:[{
+      text:'恭喜恭喜恭喜恭喜恭喜'
+    },{
+      text:'非常非常非常非常非常'
+    }]
+
   },
 
-  onLoad: function () {
-    const that = this
-    // 获取用户信息
-    let userInfo = app.globalData.userInfo;
-    that.setData({
-      userInfo: userInfo
-    });
-    // 检查登录状态
-    // app.checkLoginStatus()
-    //
-    // const list = list.shoppingData
-    // const that = this
-    that.setData({
-      funList: funList
-    })
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
   },
 
   /**

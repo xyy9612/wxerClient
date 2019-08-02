@@ -1,0 +1,186 @@
+/* pages/myOrder/myOrder.wxss */
+
+
+page {
+  background: #f9f9f9;
+  height: 100%;
+}
+/* 选项卡 */
+
+.topTabSwiper {
+  background: #f9f9f9;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.tab {
+  width: 128rpx;
+  height: 92rpx;
+  line-height: 116rpx;
+  text-align: center;
+  color: #282828;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+
+.topTabSwiper:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* 选项卡文字 */
+.tabBorder {
+  color: #282828;
+  font-weight: bold;
+  border-bottom: 2px solid #f00;
+  padding-bottom: 28rpx;
+}
+
+/* swiper内容 */
+.swiper {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+.scrollView{
+  /* margin-bottom: 20rpx; */
+
+}
+/* 滚动条设置 */
+swiper-item{
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/* order内容 */
+.orderBox {
+  width: 100%;
+  height: 396rpx;
+  background: #fff;
+  position: relative;
+  margin-top: 20rpx;
+}
+.orderBox :nth-last-child(1){
+}
+
+/* 订单号 */
+.orderBox .order_num {
+  width: 678rpx;
+  /* background: #ccc; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  left: 35rpx;
+  top: 30rpx;
+  font-size: 24rpx;
+  color: #282828;
+}
+.orderBox .order_num text {
+  color: #f36;
+}
+
+/* 订单图片 */
+
+.orderBox .order_img {
+  width: 188rpx;
+  height: 188rpx;
+  position: absolute;
+  top: 82rpx;
+  left: 30rpx;
+}
+
+/* 订单文本区域 */
+
+.orderBox .order_text {
+  display: flex;
+  justify-content: space-between;
+  /* background: #ccc; */
+  position: absolute;
+  top: 85rpx;
+  left: 238rpx;
+  width: 476rpx;
+  font-size: 28rpx;
+}
+
+/* 订单标题 */
+
+.orderBox .order_title {
+  font-weight: bold;
+  width: 440rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 4rpx;
+}
+
+/* 订单颜色/尺寸 */
+
+.orderBox .order_color {
+  width: 86rpx;
+  height: 36rpx;
+  background: #F6F6F6;
+  color: #A3A3A3;
+  font-size: 21rpx;
+  position: absolute;
+  top: 144rpx;
+  left: 236rpx;
+  line-height: 35rpx;
+  text-align: center;
+  border-radius: 22rpx;
+}
+
+/* 订单价格 */
+.orderBox .order_price {
+  position: absolute;
+  top: 230rpx;
+  left: 236rpx;
+  color: red;
+  font-size: 28rpx;
+}
+
+.orderBox .order_price text {
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+/* 订单底部金额部分 */
+
+.orderBox .order_bottom {
+  width: 692rpx;
+  height: 50px;
+  /* background: #ccc; */
+  position: absolute;
+  bottom: 0;
+  left: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orderBox .order_bottom>view {
+  margin-right: 40rpx;
+  margin-left: 26rpx;
+  color: #f36;
+}
+
+/* 两个按钮 */
+
+.orderBox .order_bottom button {
+  width: 178rpx;
+  height: 72rpx;
+  border-radius: 140rpx;
+  color: #a3a3a3;
+  font-size: 28rpx;
+  border: solid 1px a3a3a3;
+  background: white;
+
+}

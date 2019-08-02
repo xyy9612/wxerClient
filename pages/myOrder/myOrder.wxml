@@ -1,0 +1,107 @@
+<!--pages/myOrder/myOrder.wxml-->
+<!-- main 选项卡 -->
+<view style='height:100%'>
+  <view class='topTabSwiper'>
+    <view class='tab'>
+      <text data-current="0" bindtap='checkCurrent' class='{{currentData == 0 ? "tabBorder" : ""}}'>全部</text>
+    </view>
+    <view class='tab'>
+      <text data-current="1" bindtap='checkCurrent' class='{{currentData == 1 ? "tabBorder" : ""}}'>待付款</text>
+    </view>
+    <view class='tab'>
+      <text data-current="2" bindtap='checkCurrent' class='{{currentData == 2 ? "tabBorder" : ""}}'>待收获</text>
+    </view>
+    <view class='tab'>
+      <text data-current="3" bindtap='checkCurrent' class='{{currentData == 3 ? "tabBorder" : ""}}'>待评价</text>
+    </view>
+    <view class='tab'>
+      <text data-current="4" bindtap='checkCurrent' class='{{currentData == 4 ? "tabBorder" : ""}}'>退款维权</text>
+    </view>
+  </view>
+  <!-- 订单详情 -->
+  <swiper current="{{currentData}}" class='swiper' style="height:600px;" duration="300" bindchange="bindchange">
+    <swiper-item class="scrollView">
+      <view class='orderBox' wx:for='{{orderList}}' wx:key='orderList' bindtap='jumpDetail'>
+       
+        <view class="order_num">
+          订单号: {{item.order}}
+          <text>{{ item.type }}</text>
+        </view>
+
+        <image class='order_img' src='{{item.image}}'></image>
+
+        <view class='order_text'>
+          <view class='order_title'>{{ item.title }}</view>
+          <view>x{{ item.num }}00</view>
+        </view>
+
+        <view class='order_color'>{{ item.color}}/{{ item.size }}</view>
+
+        <view class='order_price'>¥
+          <text>{{ item.price }}</text>
+        </view>
+        
+        <view class='order_bottom'>
+          <text>应付金额</text>
+          <view>¥ {{ item.price }}</view>
+          <button>{{ cancelText }}</button>
+          <button>{{ paymentText }}</button>
+        </view>
+
+      </view>
+    </swiper-item>
+    <swiper-item class="scrollView" wx:for='{{orderList}}' wx:key='orderList' wx:if="{{item.type}}">
+      <view class='orderBox'  bindtap='jumpDetail'>
+        <view class="order_num">
+          订单号: {{item.order}}
+          <text>{{ item.type }}</text>
+        </view>
+        <image class='order_img' src='{{item.image}}'></image>
+        <view class='order_text'>
+          <view class='order_title'>{{ item.title }}</view>
+          <view>x{{ item.num }}00</view>
+        </view>
+        <view class='order_color'>{{ item.color}}/{{ item.size }}</view>
+        <view class='order_price'>¥
+          <text>{{ item.price }}</text>
+        </view>
+        <view class='order_bottom'>
+          <text>应付金额</text>
+          <view>¥ {{ item.price }}</view>
+          <button>{{ cancelText }}</button>
+          <button>{{ paymentText }}</button>
+        </view>
+
+      </view>
+    </swiper-item>
+
+
+    <!--  -->
+    <!-- <swiper-item class="scrollView" wx:for='{{orderList}}' wx:key='orderList'>
+      <view class='orderBox'  bindtap='jumpDetail' >
+        <view class="order_num">
+          订单号: {{item.order}}
+          <text>{{ item.type }}</text>
+        </view>
+        <image class='order_img' src='{{item.image}}'></image>
+        <view class='order_text'>
+          <view class='order_title'>{{ item.title }}</view>
+          <view>x{{ item.num }}00</view>
+        </view>
+        <view class='order_color'>{{ item.color}}/{{ item.size }}</view>
+        <view class='order_price'>¥
+          <text>{{ item.price }}</text>
+        </view>
+        <view class='order_bottom'>
+          <text>应付金额</text>
+          <view>¥ {{ item.price }}</view>
+          <button>{{ cancelText }}</button>
+          <button>{{ paymentText }}</button>
+        </view>
+
+      </view>
+    </swiper-item> -->
+
+    <!--  -->
+  </swiper>
+</view>
