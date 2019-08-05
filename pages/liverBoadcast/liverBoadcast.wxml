@@ -1,8 +1,10 @@
 <!--pages/liverBoadcast/liverBoadcast.wxml-->
 <view class='container'>
-  <view class='viewBox' wx:for='{{videoList}}' wx:key='videoList'>
+
+  <rich-text nodes="{{nodes}}"></rich-text>
+  <view class='viewBox' wx:for='{{videoList}}' bindtap='getLiveDetails' wx:key='videoList' data-id='{{item.id}}'>
     <!-- 图片 -->
-    <image class='videoimg' src="{{item.videoImg}}"></image>
+    <image class='videoimg' src="{{backUrl + item.img }}"></image>
     <image class='videobutton' src="{{item.videobutton}}"></image>
     <!-- 标题区 -->
     <view class='videotext'>
@@ -10,7 +12,7 @@
         {{ item.title}}
       </view>
       <view class='videosubtext'>
-        {{ item.sub}}
+        {{ item.introduce}}
       </view>
     </view>
   </view>

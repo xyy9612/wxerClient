@@ -28,7 +28,11 @@ Page({
       funList: funList
     })
   },
-
+  allOrder:function(){
+    wx.navigateTo({
+      url: "/pages/myOrder/myOrder"
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -17,9 +17,9 @@ page {
 /* 图片 */
 
 .imgview {
-  width: 162rpx;
+  width: 135rpx;
   height: 166rpx;
-  margin: 36rpx 0 0 36rpx;
+  margin: 36rpx 0 0 30rpx;
 }
 
 /* 文本区域 */
@@ -27,7 +27,7 @@ page {
 .textView {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
   margin-left: 50rpx;
   padding: 40rpx 0 0 0px;
@@ -43,7 +43,7 @@ page {
 
 .priceview {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
   font-size: 24rpx;
   color: #a3a3a3;
@@ -52,7 +52,7 @@ page {
 .price {
   font-weight: bold;
   color: red;
-  font-size: 40rpx;
+  font-size: 35rpx;
   margin: 0 16rpx 0 6rpx;
 }
 
@@ -64,11 +64,10 @@ page {
   border-radius: 40rpx;
   height: 68rpx;
   width: 180rpx;
-  font-size: 30rpx;
+  font-size: 26rpx;
   text-align: center;
   line-height: 68rpx;
-  margin-left: 70rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 15rpx;
 }
 
 

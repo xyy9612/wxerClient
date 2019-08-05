@@ -1,0 +1,38 @@
+<!--pages/login/login.wxml-->
+<view class='login-wrapper'>
+  <!-- 头部logo区域 start -->
+    <view class='top_user'>
+      <image mode="aspectFit" src='../../images/img/wxer.png'></image>
+      <!-- <open-data type="userAvatarUrl"></open-data> -->
+    </view>
+  <!-- 头部logo区域 end --> 
+  <view class='textInfo'>
+    <view style='border-bottom: 2px red solid'>登录</view>
+    <view  style='font-size:14px; font-weight:normal;padding-top:9px;color:#A3A3A3'>注册</view>
+  </view>
+
+  <!-- input -->
+  <view class='content-wrapper'>
+    <view class='content'>
+      <form bindsubmit='login'>
+
+        <view class='item'>
+          <image src='../../images/img/phone.png'></image>
+          <input name="mobile" value='15664952503' placeholder='请输入手机号' />
+        </view>
+
+        <view class='item password'>
+         <image src='../../images/img/pas.png'></image>
+          <input name="password" value='{{ password }}' password='true' placeholder='请输入密码' />
+        </view>
+        <view>
+
+          <button form-type='submit' class='login_btn' data-user_code=' {{ user_code }}'>登 录</button>
+        </view>
+
+      </form>
+    </view>
+  </view>
+
+  
+</view>

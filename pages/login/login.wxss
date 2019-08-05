@@ -1,0 +1,83 @@
+/* pages/login/login.wxss */
+ page{
+  height: 100%;
+  background: #F9F9F9;
+}
+.top_user {
+  width: 83px;
+  height: 83px;
+ 
+  position: absolute;
+  top: 50px;
+  left: 146px;
+}
+.top_user image{
+  width: 100%;
+  height: 100%;
+   border-radius: 50%;
+  overflow: hidden;
+}
+/*  */
+.textInfo{
+  width: 100%;
+  display: flex;
+  position: absolute;
+  top: 158px;
+  left: 140px;
+}
+.textInfo view{
+  font-size: 22px;
+  padding: 2px 5px; 
+  font-weight: bold;
+  
+}
+/* 内容 */
+.content-wrapper {
+  z-index: 99;
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  /* background: pink; */
+  transform: translate(-50%, -50%);
+}
+
+.content-wrapper .content .item {
+  margin-bottom: 33rpx;
+  position: relative;
+  background: #ccc;
+  width: 293px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.content-wrapper .content .item image {
+  position: absolute;
+  left: 22rpx;
+  top: 15rpx;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.content-wrapper .content .item input {
+  height: 75rpx;
+  padding-left: 77rpx;
+  font-size: 28rpx;
+  color: #A3A3A3;
+}
+
+.login_btn {
+  width: 586rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 47rpx;
+  margin-top: 140rpx;  
+  opacity: .8;
+  border: none !important;
+  background: linear-gradient(to right,#FE5C5F 0,#F92832 100%);
+  color: #fff;
+  font-weight: bold;
+}
+
+.login_btn::after {
+  border: none;
+}

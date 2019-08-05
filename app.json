@@ -1,16 +1,20 @@
 {
   "pages": [
-    
+    "pages/login/login",
+    "pages/register/register",
+    "pages/Information/Information",
     "pages/index/index",
     "pages/logs/logs",
+    "pages/shopCar/shopCar",
+    "pages/supply/supply",
     "pages/myHome/myHome",
     "pages/myOrder/myOrder",
-    "pages/shopCar/shopCar",
+    "pages/shopDetails/shopDetails",
     "pages/shoppingView/shoppingView",
-    "pages/supply/supply",
     "pages/supplyDetails/supplyDetails",
+    "pages/questionNaire/questionNaire",
     "pages/liverBoadcast/liverBoadcast",
-    "pages/questionNaire/questionNaire"
+    "pages/liveDetails/liveDetails"
   ],
   "window": {
     "backgroundTextStyle": "light",

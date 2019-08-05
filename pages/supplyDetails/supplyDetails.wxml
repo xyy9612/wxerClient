@@ -1,24 +1,45 @@
+<wxs src="../../wxs/phone.wxs" module="tools" />
 <view class="viewcla">
   <!-- top -->
   <view class='topcla'>
     <!-- 商品的图片,标题,副标题,价格 -->
-    <image src='{{dataList.img}}'></image>
-   <view class='rollView'>
-    <swiper circular='{{circular}}' indicator-dots='{{indicatorDots}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}' vertical='{{vertical}}'>
-      <block wx:for='{{text}}' >
-        <swiper-item >
-          <view class="roll_item">用户{{item.text}}分钟前抢到了<text style='color:red'>1元</text>购商品</view>
-          
-        </swiper-item>
-      </block>
+    <!--图片轮播
+      -->
+    <view class="swiper-container">
+      <swiper autoplay="auto" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+        <block wx:for="{{slider}}" wx:key="unique">
+          <swiper-item data-id="{{item.id}}">
+            <image src="{{ pictureUrl + item.path}}" class="img"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="dots">
+        <block wx:for="{{slider}}" wx:key="unique">
+          <view class="dot{{index == swiperCurrent ? ' active' : ''}}" bindtap="chuangEvent" id="{{index}}">{{index+1}}</view>
+        </block>
+      </view>
+    </view>
+    <!-- <image src='{{dataList.img}}'></image> -->
+    <!-- 弹幕轮播 -->
+    <!--  -->
+    <view class='rollView'>
+      <swiper circular='{{circular}}' indicator-dots='{{indicatorDots}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}' vertical='{{vertical}}'>
+        <block wx:for='{{text}}' wx:key='{{text}}'>
+          <swiper-item>
+            <view class="roll_item">用户{{tools.sub(item.phone, 3, 4)}} {{item.time}}分钟前抢到了
+              <text style='color:red'>1元</text>购商品 
+            </view>
 
-    </swiper>
-   </view>
+          </swiper-item>
+        </block>
+
+      </swiper>
+    </view>
     <!-- <view class='rollView' wx:for="{{recordList}}">
       <view class='roll'>{{item.id}}</view>
     </view> -->
-    <view class='title p-ml-10 p-mt-5'>{{dataList.title}}</view>
-    <view class='subtitle p-ml-10 p-mt-5'>{{dataList.subtitle}}</view>
+    <view class='title p-ml-10 p-mt-5'>{{dataList.goods}}</view>
+    <view class='subtitle p-ml-10 p-mt-5'>{{dataList.introduce}}</view>
     <view class='price p-ml-10 p-mt-5'>¥
       <text>{{dataList.price}}</text>
     </view>
@@ -26,7 +47,7 @@
     <view class='textview p-mt-30'>
       <view class='freight'>运费 免运费</view>
       <view class='surplus'>剩余
-        <text style='color:red;'> 200 </text>
+        <text style='color:red;'> {{dataList.stock}} </text>
       </view>
     </view>
   </view>
@@ -41,22 +62,22 @@
     <swiper current="{{currentData}}" class='swiper' style="height:600px;" duration="300" bindchange="bindchange">
       <swiper-item>
         <view class='swiper_con'>
-          <image class='imgclass' src='{{dataList.bigimg }}'></image>
+          <image class='imgclass' mode='aspectFill' src='{{ pictureUrl + dataList.details[0].path }}'></image>
         </view>
       </swiper-item>
       <!-- 商品详情 end -->
       <!-- 成交记录 -->
       <swiper-item>
-        <view class='swiper_con recordcla' wx:for='{{recordList}}' wx:key='recordList'>
+        <view class='swiper_con recordcla' wx:for='{{ text }}' wx:key='text'>
           <view style='color: #292929;'>用户
-            <text style='color:red'>{{item.id}}</text> 抢购成功</view>
+            <text style='color:red'>{{tools.sub(item.phone, 3, 4)}}</text> 抢购成功</view>
         </view>
 
       </swiper-item>
       <!-- 成交记录 end -->
     </swiper>
+    <!--  -->
   </view>
-
 </view>
 
 <!-- 底部导航 -->
@@ -65,5 +86,6 @@
     <image src='../../images/img/shouye.png'></image>
     <text>首页</text>
   </view>
-  <view class='btright'>立即购买</view>
+  <view class='btright' wx:if="{{ buyCar }}" catchtap='goinByCar' > 加入购物车</view>
+  <view class='btright' wx:else > 0元抢购（距离时间还有 {{hhh}}:{{mmm}}:{{sss}}）</view>
 </view>

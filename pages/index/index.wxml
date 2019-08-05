@@ -2,7 +2,8 @@
 <view class="container">
 
   <view class='poto'>
-    <image src='../../images/img/rushBuy.png' bindtap='rushJump'></image>
+    <!-- <image data-qianggou='qianggou' src='{{photoUrl + rushBuy.png }}'  bindtap='rushJump'></image> -->
+    <image data-qianggou='qianggou' src='../../images/img/rushBuy.png'  bindtap='rushJump'></image>
   </view>
   <!-- 直供直播 -->
   <view class='subView'>

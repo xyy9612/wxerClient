@@ -7,14 +7,14 @@
     <view class='top_user'>
       <open-data type="userAvatarUrl"></open-data>
       <open-data type="userNickName"></open-data>
-  </view>
+    </view>
   </view>
 
 <!-- 我的订单 -->
   <view class='my_order'>
     <view class='my_all'>
       <text>我的订单</text>
-      <text class='my_text'>查看全部订单 ></text>
+      <text class='my_text' bindtap='allOrder'>查看全部订单 ></text>
     </view>
     <!-- 图标功能区 -->
     <view class='icon_entry'>

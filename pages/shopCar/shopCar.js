@@ -3,7 +3,7 @@
 var numbers = 1;
 var bool = true;
 let list = require("../../data/data.js").shoppingData
-
+const app = getApp();
 
 Page({
   data: {
@@ -14,24 +14,50 @@ Page({
     // hasList: false,          // 列表是否有数据
     // 默认展示数据
     hasList: true,
-    // 商品列表数据
-
+    //商品
+    shopNum:'',
+    shopIdArr: [],
+    shopid: '',
     // 金额
     totalPrice: 0, // 总价，初始为0
     // 全选状态
     selectAllStatus: false, // 全选状态，默认全选
   },
   onLoad: function() {
-    const carData = list
+    // that.getShopCarList()
 
+    //获取列表
     const that = this
-    // const list = list.shoppingData
-    // const that = this
-    that.setData({
-      list: list
-    })
+    // 显示loading
+    app.showLoading('加载中...');
+    // 请求
+    wx.request({
+      url: app.config.backUrl + 'apiCar/car',
+      data: {
+        uid: app.config.uid_code,
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'POST',
+      success: res => {
+        wx.hideLoading();
+        that.setData({
+          list: res.data.data
+        })
+      },
+      error: function(res) {
+        app.errorLog(res);
+        wx.hideLoading();
+        app.showModal(res);
+      },
+      fail: function(res) {
+        app.failLog(res);
+        wx.hideLoading();
+        app.showModal('网络错误，请稍候再试');
+      }
+    });
   },
-
   onShow() {
     wx.showToast({
       title: '加载中',
@@ -42,12 +68,21 @@ Page({
     // 价格方法
     this.count_price();
   },
+
+
+  /**
+   * 获取购物车列表
+   */
+  getShopCarList: function() {
+
+  },
   /**
    * 当前商品选中事件
    */
   selectList(e) {
-    var that = this;
-    // 获取选中的radio索引
+    const that = this;
+    that.data.shopIdArr.push(String(e.currentTarget.dataset.shopid))
+    console.log('-----', that.data.shopIdArr)
     var index = e.currentTarget.dataset.index;
     // 获取到商品列表数据
     var list = that.data.list;
@@ -95,26 +130,60 @@ Page({
   // /** */
   deletes: function(e) {
     var that = this;
-    let list = this.data.list;
-    var index = -1; //要开始删除的位置
-    var delnum = 0; //要删除的数量
+    let list = that.data.list;
+    let shopid = that.data.shopIdArr
 
-    for (var i = 0; i < list.length; i++) {
-      //如果当前商品已选中
-      if (list[i].selected) {
-        if (index == -1) {
-          index = i; //得到要开始删除的位置（第一个勾选的商品的位置）
+    console.log(shopid)
+    // 显示loading
+    app.showLoading('加载中...');
+    // 请求
+    wx.request({
+      url: app.config.backUrl + 'apiCar/out_car',
+      data: JSON.stringify({
+        'id': shopid, //需要删除的数据
+      }),
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'POST',
+      success: res => {
+        console.log(res)
+        if (res.data.statusCode == 0) {
+          //删除
+
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'loading',
+            duration: 1500
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'success',
+            duration: 1000
+          })
         }
-        delnum++;
-      }
-    }
+        that.setData({
+          list: list.splice(shopid, 1)
+        })
 
-    list.splice(index, delnum); //删除
-    this.setData({
-      list: list
-    })
-    this.count_price();
-    wx.setStorageSync("list", list) //存缓存
+
+        this.count_price();
+        wx.setStorageSync("list", list) //存缓存
+      },
+
+
+      error: function(res) {
+        app.errorLog(res);
+        wx.hideLoading();
+        app.showModal(res);
+      },
+      fail: function(res) {
+        app.failLog(res);
+        wx.hideLoading();
+        app.showModal('网络错误，请稍候再试');
+      }
+    });
   },
 
   /**
@@ -140,6 +209,7 @@ Page({
     this.count_price();
   },
 
+
   /**
    * 绑定加数量事件
    */
@@ -160,6 +230,8 @@ Page({
     // 计算金额方法
     this.count_price();
   },
+
+
   /**
    * 绑定减数量事件
    */
@@ -189,6 +261,17 @@ Page({
   // 提交订单
   btn_submit_order: function() {
     var that = this;
+    if(that.data.totalPrice == 0){
+      console.log()
+      wx.showToast({
+        title: '未选择任何商品',
+        icon: "loading",
+        duration: 1000
+      })
+    } else{
+      // that.data.shopNum.push(String(e.currentTarget.dataset.shopNum))
+      // console.log('-----', that.data.shopIdArr)
+    }
     console.log(that.data.totalPrice);
 
     // 调起支付
@@ -203,17 +286,20 @@ Page({
     //     'fail': function (res) { },
     //     'complete': function (res) { }
     //   })
-    wx.showModal({
-      title: '提示',
-      content: '合计金额-' + that.data.totalPrice + "暂未开发",
-    })
+    // wx.showModal({
+    //   title: '提示',
+    //   content: '合计金额-' + that.data.totalPrice + "暂未开发",
+    // })
   },
+
+
   /**
    * 计算总价
    */
   count_price() {
+    const that = this
     // 获取商品列表数据
-    let list = this.data.list;
+    let list = that.data.list;
     // 声明一个变量接收数组列表price
     let total = 0;
     // 循环列表得到每个数据
@@ -225,7 +311,7 @@ Page({
       }
     }
     // 最后赋值到data中渲染到页面
-    this.setData({
+    that.setData({
       list: list,
       totalPrice: total.toFixed(2)
     });

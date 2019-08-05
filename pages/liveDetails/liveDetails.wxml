@@ -1,0 +1,4 @@
+<!--pages/liveDetails/LiveDetails.wxml-->
+<!-- <text>pages/liveDetails/LiveDetails.wxml</text> -->
+
+<rich-text nodes="{{nodes}}"></rich-text>

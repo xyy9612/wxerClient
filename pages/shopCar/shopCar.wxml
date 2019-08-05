@@ -2,8 +2,7 @@
 
 <!-- 最外层视图pages -->
 <view class="pages">
-
-  <view wx:if="{{hasList}}">
+  <view wx:if="{{list}}">
     <!-- 编辑 -->
     <view class='edit'>
       <label class='edit_btn' bindtap='btn_edit'>{{edit_name}}</label>
@@ -15,15 +14,13 @@
       <!-- <image src='../../images/dele.png'></image> -->
       
       <image wx:if="{{item.selected}}" data-index="{{index}}" class="radio_chek" bindtap="selectList" src='../../images/img/radio_show.png'></image>
-      <!-- <icon wx:else type="circle" class="radio_chek" data-index="{{index}}" bindtap="selectList" /> -->
-      <!-- else -->
-      <image wx:else src='../../images/img/radio_none.png' class="radio_chek" data-index="{{index}}" bindtap="selectList"></image>
+      <image wx:else src='../../images/img/radio_none.png' class="radio_chek" data-index="{{index}}" bindtap="selectList" data-shopid='{{ item.id}}' data-shopNum='{{ item.Num}}'></image>
       <!-- 列表标题 -->
-      <text class="list_name">{{item.title}}</text>
+      <text class="list_name">{{item.goods}}</text>
       <!-- 列表商品图片 -->
       <image class="list_img" src="{{item.image}}"></image>
       <!-- 规格 -->
-      <text class="cart_color_age">{{item.color}}/{{item.age}}</text>
+      <text class="cart_color_age">{{item.goods}}</text>
       <!-- 价格 -->
       <text class="list_price"><text>￥</text>{{item.price}}</text>
       <!-- 商品数量加减  style='display:{{show_edit}}'-->
@@ -66,5 +63,7 @@
   <view wx:else>
     <view class="list_none">购物车是空的哦~</view>
   </view>
+
+
 
 </view>

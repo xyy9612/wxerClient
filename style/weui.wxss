@@ -1118,12 +1118,12 @@ icon {
 
 .weui-search-bar {
   position: relative;
-  padding: 8px 10px;
+  padding: 38rpx 32rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
   box-sizing: border-box;
-  background-color: #efeff4;
+  background-color: #fff;
   border-top: 1rpx solid #d7d6dc;
   border-bottom: 1rpx solid #d7d6dc;
 }
@@ -1152,6 +1152,7 @@ icon {
   flex: auto;
   border-radius: 5px;
   background: #fff;
+  margin-top: -2px;
   /* border: 1rpx solid #e6e6ea; */
 }
 
@@ -1165,9 +1166,10 @@ icon {
 }
 
 .weui-search-bar__input {
-  height: 28px;
-  line-height: 28px;
-  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 30rpx;
+  padding-left: 18px;
 }
 
 .weui-icon-clear {

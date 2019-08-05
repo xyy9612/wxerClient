@@ -1,12 +1,18 @@
 // pages/questionNaire/questionNaire.js
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    currentSelectTripType: true,
+
     currentCheck: 0,
     focus:'',
+    questionList: [],
+    checked: true,
     quesOne:[
       {
         check: '男',
@@ -51,7 +57,44 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const that = this
+    // 显示loading
+    app.showLoading('加载中...');
+    // 请求
+    wx.request({
+      url: app.config.backUrl + 'apiQuestion/question',
+      data: {
+      
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'POST',
+      success: res => {
+        wx.hideLoading();
+        // // 提示
+        // wx.showToast({
+        //   title: '登陆成功',
+        //   mask: true
+        // });
+        // 跳转到首页
+        console.log(res.data.data)
+        that.setData({
+          questionList:res.data.data
+        })
+      },
+      error: function (res) {
+        app.errorLog(res);
+        wx.hideLoading();
+        app.showModal(res);
+      },
+      fail: function (res) {
+        console.log(res)
+        app.failLog(res);
+        wx.hideLoading();
+        app.showModal('网络错误，请稍候再试');
+      }
+    });
   },
   // 问题1
   checkbox: function (e) {
@@ -92,13 +135,28 @@ Page({
       quesThree: quesThree
     })
   },
-
+  // 更新data 切换选中状态
+  selectedPinche: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    this.setData({
+      currentSelectTripType: e.currentTarget.dataset.id
+    })
+  },
+  selectedBaoche: function (e) {
+    this.setData({
+      currentSelectTripType: e.currentTarget.dataset.id
+    })
+  },
+  /**
+   * 
+   * 提交
+   * 
+   */
   formSubmit: function (e) {
-    let sex = e.detail.value.sex
-    let age = e.detail.value.age
-    let typeShop = e.detail.value.typeShop
-    let proposal = e.detail.value.proposal
-    console.log('数据为：', sex, age, typeShop, proposal);
+    let question1 = e.detail.value.question1
+    let question2 = e.detail.value.question2
+    let question3 = e.detail.value.question3
+    console.log('数据为：', question1, question2, question3);
 
   //   this.setData({
   //     proposal: "",

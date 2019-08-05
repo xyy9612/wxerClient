@@ -1,0 +1,39 @@
+<!--pages/shopDetails/shopDetails.wxml-->
+<!-- 最外层视图pages -->
+<view class="pages">
+  <view wx:if="{{list}}">
+    <!-- 编辑 -->
+    
+    <!-- 列表 -->
+    <view class="list" wx:for="{{list}}" wx:key="{{index}}">
+      <!-- 列表标题 -->
+      <text class="list_name">{{item.goods}}</text>
+      <!-- 列表商品图片 -->
+      <image class="list_img" src="{{item.image}}"></image>
+      <!-- 规格 -->
+      <text class="cart_color_age">{{item.goods}}</text>
+      <!-- 价格 -->
+      <text class="list_price"><text style='color:#666666'>小计 </text><text style='font-size:20rpx;'>￥</text >{{item.price}}</text>
+      <!-- 商品数量加减  style='display:{{show_edit}}'-->
+       <view class="cont_bot">
+      <text class='sel_count_name'>共 {{list.length}} 件</text>
+      
+      <lable class="count_price"  style='display:{{show_edit}}'>共计 ￥
+        <text style='font-weight: bold;'>{{item.price}}<text></text></text>
+      </lable>
+      <!-- 提交订单 -->
+      <label class='submit'style='display:{{show_edit}}' bindtap='btn_submit_order'>提交订单</label>
+     
+    </view>
+
+    </view>
+    <!-- 固定底部 -->
+   
+  </view>
+  <view wx:else>
+    <view class="list_none">购物车是空的哦~</view>
+  </view>
+
+
+
+</view>

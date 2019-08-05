@@ -1,0 +1,38 @@
+<!--pages/register/register.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-search-bar">
+        社区名称:
+      <view class="weui-search-bar__form">
+        
+      
+          <!-- <icon class="weui-icon-search_in-box" type="search" size="14"></icon> -->
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" maxlength='10' value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <!-- <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view> -->
+        </view>
+        <!-- <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+        </label> -->
+      <!-- <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view> -->
+    </view>
+    <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+      <!-- 遍历List -->
+      <view class="weui-cell__bd" wx:for="{{list}}" wx:key="key">
+        <view class='list_name' data-id='{{item.deviceId}}' data-name='{{item.carNum}}' bindtap='btn_name'>
+          <label class='lab_name'>{{item.community}}</label>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<view class='msg-item' hidden='{{viewShowed}}'>
+  <image class='header-img' src="/img/car.png"></image>
+  <view class='carNum'>{{carNum}}</view>
+  <view class='deviceId'>{{deviceId}}</view>
+  <image class='site-img' src="/img/site.png"></image>
+</view>

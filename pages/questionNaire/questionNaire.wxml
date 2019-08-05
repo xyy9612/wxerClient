@@ -5,15 +5,25 @@
   <!-- 选项框 -->
   <form class='formBox' bindsubmit="formSubmit">
     <view class='checkwrap'>
+
       <!-- 问题 -->
-      <text>您的性别</text>
-      <checkbox-group class="groupclas" name="sex">
-        <label class="{{item.checked?'checkbox checked':'checkbox'}}" wx:for="{{quesOne}}" bindtap='checkbox' data-index="{{index}}" wx:key="item.check">
-          <checkbox class='btncla' value="{{item.check}}" checked="{{item.checked}}" />{{item.check}}
-        </label>
-      </checkbox-group>
-     
-      <text>您的年龄</text>
+      <view wx:for="{{questionList}}" wx:key="{{questionList}}">
+        <text>{{ item.question}}</text>
+        <view class="switch-type" wx:if="{{ item.type == 1 }}">
+          <view class="btn {{currentSelectTripType == true ? 'active' : ''}}" bindtap='selectedPinche' data-id='pinche'>{{ item.A}}</view>
+          <view class="btn {{currentSelectTripType == false ? 'active' : ''}}" bindtap='selectedBaoche' data-id='baoche'>{{ item.B}}</view>
+        </view>
+
+        <textarea name="question2" wx:if="{{ item.type == 2 }}" class='area' placeholder="请输入您的答案" placeholder-class='placeholder' focus="{{focus}}">
+        </textarea>
+
+        <!-- <view class="btn {{currentSelectTripType == 'pinche' ? 'active' : ''}}" bindtap='selectedPinche' data-id='pinche'>{{ item.A}}</view>
+        <view class="btn {{currentSelectTripType == 'pinche' ? 'active' : ''}}" bindtap='selectedPinche' data-id='pinche'>{{ item.B}}</view> -->
+        <!-- <checkbox-group class="groupclas" name="question1"> -->
+
+        <!-- </checkbox-group> -->
+
+        <!-- <text>您的年龄</text>
       <checkbox-group class="groupclas" name="age">
         <label class="{{item.checked?'checkbox checked':'checkbox'}}" wx:for="{{quesTwo}}" bindtap='checkbox2' data-index="{{index}}" wx:key="item.check">
           <checkbox class='btncla' value="{{item.check}}" checked="{{item.checked}}" />{{item.check}}
@@ -24,14 +34,19 @@
         <label class="{{item.checked?'checkbox checked':'checkbox'}}" wx:for="{{quesThree}}" bindtap='checkbox3' data-index="{{index}}" wx:key="item.check">
           <checkbox class='btncla' value="{{item.check}}" checked="{{item.checked}}" />{{item.check}}
         </label>
-      </checkbox-group> 
-      <!-- textarea  -->
-      <text>您对我们平台有什么意见或建议</text>
-      <textarea name="proposal" class='textarea' placeholder="觉得这件商品如何，快来说几句吧" placeholder-class='placeholder' focus="{{focus}}">
-      </textarea>
+      </checkbox-group>  -->
+
+
+      </view>
 
       <!-- 按钮提交 -->
+      <text>您对我们平台有什么意见或建议</text>
+      <textarea name="question3" class='area2' placeholder="觉得这件商品如何，快来说几句吧" placeholder-class='placeholder' focus="{{focus}}">
+      </textarea>
       <button class='btnClass' formType="submit">提交</button>
     </view>
   </form>
+
+
+
 </view>

@@ -35,39 +35,29 @@ page {
   font-weight: bold;
 }
 
-.groupclas {
+/* .groupclas {
   margin-bottom: 44rpx;
-}
+} */
 
-.checkwrap checkbox {
+/* .checkwrap checkbox {
   display: none;
-}
-
-/* 未选 */
-
-.checkbox {
-  display: inline-block;
-  position: relative;
-  width: 264rpx;
-  height: 80rpx;
-  background-color: #c6c6c6;
-  line-height: 80rpx;
-  text-align: center;
-  border-radius: 40rpx;
-  margin: 40rpx 40rpx 0 0px;
-  color: #fff;
-  font-weight: bold;
-}
-
-/* 选中 */
-
-.checked {
-  background: #f6575e;
-}
+} */
 
 /* textarea */
 
-.textarea {
+.area {
+  background: #F9F9F9;
+  margin-top: 40rpx;
+  margin-bottom:  40rpx;
+  padding: 40rpx 20rpx;
+  color: #a3a3a3;
+  font-size: 32rpx;
+  font-weight: normal;
+  width: 540rpx;
+  border-radius: 20rpx;
+  height: 50px;
+}
+.area2{
   background: #F9F9F9;
   margin-top: 40rpx;
   padding: 40rpx 20rpx;
@@ -92,4 +82,39 @@ page {
   font-size: 32rpx;
   font-weight: normal;
   border-radius: 56rpx;
+}
+/*  */
+.switch-type {
+ 
+   display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  
+}
+/* .switch-type .btn:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.switch-type .btn:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+} */
+/* 未选 */
+.switch-type .btn {
+   width: 185rpx;
+  height: 65rpx;
+  border-radius: 80rpx;
+  background: #C6C6C6;
+  padding: 10rpx 40rpx;
+  margin: 45rpx 0;
+  text-align: center;
+  line-height: 65rpx;
+  color: #fff;
+  font-size: 32rpx;
+}
+/* 选中 */
+.switch-type .btn.active {
+  /* border: 2rpx solid #007bff; */
+  background: #F6575E;
 }

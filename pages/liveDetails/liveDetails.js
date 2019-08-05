@@ -1,26 +1,12 @@
-// pages/liverBoadcast/liverBoadcast.js
-const app = getApp();
+// pages/liveDetails/LiveDetails.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    backUrl: app.config.backUrl,
-    videoList:[
-      {
-        "videoImg":"../../images/img/video1.png",
-        "videobutton":"../../images/img/bofang.png",
-        "title":"青苹果的家乡,无添加无污染种植",
-        "sub":"从种植,浇灌到施肥.生长环境无污染,果肉鲜美."
-      },
-      {
-        "videoImg": "../../images/img/video2.png",
-        "videobutton":"../../images/img/bofang.png",
-        "title": "草莓的家乡,无添加无污染种植",
-        "sub": "从种植,浇灌到施肥.生长环境无污染,果肉鲜美."
-      }
-    ]
+    nodes:''
   },
 
   /**
@@ -28,20 +14,22 @@ Page({
    */
   onLoad: function (options) {
     const that = this
+    console.log(options.id)
     // 显示loading
     app.showLoading('加载中...');
     // 请求
     wx.request({
-      url: app.config.backUrl + 'apiIndex/live',
+      url: app.config.backUrl + 'apiLive/details',
       data: {
-        page:1
+        id: options.id
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       method: 'POST',
       success: res => {
-        console.log(res.data.data)
+        let text = res.data.data.text 
+        console.log(res.data.data.text)
         wx.hideLoading();
         // 提示
         wx.showToast({
@@ -49,7 +37,7 @@ Page({
           mask: true
         });
         that.setData({
-          videoList: res.data.data
+          nodes: text
         })
       },
       error: function (res) {
@@ -66,15 +54,6 @@ Page({
     });
   },
 
-  /**
-   * 跳转详情
-   */
-  getLiveDetails:function(e){
-    const id = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '/pages/liveDetails/liveDetails?id=' + id 
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
